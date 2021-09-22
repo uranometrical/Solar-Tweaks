@@ -1,0 +1,3 @@
+loadworkspace $currentJarFilePath
+decompile $commitIdFilePath
+quit
