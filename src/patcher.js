@@ -12,11 +12,14 @@ const LTTempFolderLocation = `${LTFolderLocation}\\Temp`;
 const lcJreLocation = `${process.env.USERPROFILE}\\.lunarclient\\jre\\zulu16.30.15-ca-fx-jre16.0.1-win_x64\\bin\\java.exe`;
 
 export async function checkLTFolder() {
+  console.log(`Checking LT folder... (${LTFolderLocation})`);
   return new Promise((resolve) => {
     setTimeout(() => {
       try {
         if(!fs.existsSync(LTFolderLocation)) {
+          console.log(`Creating LT folder...`);
           fse.copySync(`${__dirname}\\..\\template`, LTFolderLocation);
+          console.log(`LT folder created...`);
           resolve();
         } else resolve();
       } catch (error) {
@@ -27,23 +30,32 @@ export async function checkLTFolder() {
 }
 
 export async function checkJavaInstallation() {
+  console.log(`Checking Java Installation...`);
   return new Promise((resolve) => {
     setTimeout(() => {
       if(fs.existsSync(lcJreLocation)) {
+        console.log(`Java is installed`);
         resolve(true);
-      } else resolve(false);
+      } else {
+        console.error(`Java is not installed`);
+        resolve(false);
+      }
     }, 500);
   });
 }
 
 export async function copyJarFileToTemp(filePath) {
+  console.log(`Copying JAR file to Temp folder... (${LTTempFolderLocation})`);
   return new Promise((resolve) => {
     try {
       const date = new Date();
       const currentFolder = `${LTTempFolderLocation}\\${date.getTime().toString()}`
       fs.mkdirSync(currentFolder);
+      console.log(`Creating temporary folder... (${currentFolder})`);
       setTimeout(() => {
+        console.log(`Copying JAR file...`);
         fs.copyFileSync(filePath, `${currentFolder}\\currentJarFile.jar`);
+        console.log(`JAR file copied`);
         resolve(currentFolder);
       }, 1000);
     } catch (error) {
@@ -53,6 +65,7 @@ export async function copyJarFileToTemp(filePath) {
 }
 
 export async function convertLclasses(currentFolderPath) {
+  console.log(`Converting lclasses...`);
   return new Promise((resolve) => {
     setTimeout(() => {
       try {
@@ -74,6 +87,7 @@ export async function convertLclasses(currentFolderPath) {
         });
 
         newJarFile.writeZip(`${currentFolderPath}\\currentJarFile.jar`);
+        console.log(`lclasses converted`);
         resolve();
       } catch (error) {
         resolve({error});
@@ -83,6 +97,7 @@ export async function convertLclasses(currentFolderPath) {
 }
 
 export async function convertClasses(currentFolderPath) {
+  console.log(`Converting classes...`);
   return new Promise((resolve) => {
     setTimeout(() => {
       try {
@@ -92,6 +107,7 @@ export async function convertClasses(currentFolderPath) {
           newJarFile.addFile(entry.entryName.replaceAll('.class', '.lclass'), entry.getData(), entry.comment, entry.attr);
         });
         newJarFile.writeZip(`${currentFolderPath}\\currentJarFile.jar`);
+        console.log(`Classes converted`);
         resolve();
       } catch (error) {
         resolve({error});
@@ -101,6 +117,7 @@ export async function convertClasses(currentFolderPath) {
 }
 
 export async function findCommitId(currentFolderPath) {
+  console.log(`Finding commit ID...`);
   return new Promise((resolve) => {
     setTimeout(() => {
       const scriptLocation = `${LTFolderLocation}\\Scripts\\checkCommitId.txt`;
@@ -110,8 +127,12 @@ export async function findCommitId(currentFolderPath) {
         const output = execSync(startRecaf(currentFolderPath, scriptLocation)).toString();
         fs.writeFileSync(scriptLocation, defaultScript, { encoding: 'utf-8' });
         if(output.includes(mappings.commit.id) && output.includes(mappings.commit.fullId)) {
+          console.log(`Commit ID found`);
           resolve();
-        } else resolve(null);
+        } else {
+          console.log(`Commit ID not found (probably invalid Lunar version)`);
+          resolve(null);
+        }
       } catch (error) {
         resolve({error});
       }
@@ -120,6 +141,7 @@ export async function findCommitId(currentFolderPath) {
 }
 
 export async function patch(currentFolderPath, patchName) {
+  console.log(`Executing patch "${patchName}"...`);
   return new Promise((resolve) => {
     setTimeout(() => {
       const patchs = mappings.patchs[patchName];
@@ -151,6 +173,7 @@ export async function patch(currentFolderPath, patchName) {
               .replace('$outputFile', `${currentFolderPath}\\\\currentJarFile.jar`));
             execSync(startRecaf(currentFolderPath, replaceWithScriptLocation));
             fs.writeFileSync(replaceWithScriptLocation, defaultReplaceWithScript);
+            console.log(`Patch "${patchName}" executed`)
             resolve();
             break;
           }
@@ -165,6 +188,7 @@ export async function patch(currentFolderPath, patchName) {
 }
 
 export async function saveBuild(currentFolderPath, selectedPatches) {
+  console.log(`Saving build...`);
   // Applying patches
   for (const patchIndex in selectedPatches) {
     const patchName = selectedPatches[patchIndex];
@@ -176,6 +200,7 @@ export async function saveBuild(currentFolderPath, selectedPatches) {
   return new Promise((resolve) => {
     // Saving file
     setTimeout(() => {
+      console.log(`Opening save dialog...`);
       try {
         let filePath = electron.remote.dialog.showSaveDialogSync({
           title: "Save your custom Lunar build",
@@ -185,10 +210,13 @@ export async function saveBuild(currentFolderPath, selectedPatches) {
           properties: [ "showHiddenFiles", "dontAddToRecent" ]
         });
         if(!filePath) {
+          console.log(`Save path not choosed`);
           resolve(false);
           return;
         }
+        console.log(`Copying JAR file to final destination...`);
         fs.copyFileSync(`${currentFolderPath}\\currentJarFile.jar`, filePath);
+        console.log(`JAR file copied`);
         resolve(filePath);
       } catch (error) {
         resolve({error});
@@ -198,11 +226,13 @@ export async function saveBuild(currentFolderPath, selectedPatches) {
 }
 
 export async function clearCache(currentFolderPath) {
+  console.log(`Clearing cache...`);
   return new Promise((resolve) => {
     setTimeout(() => {
       try {
         console.log(currentFolderPath);
         fs.rmdirSync(currentFolderPath, { recursive: true, force: true });
+        console.log(`Cache cleared`);
         resolve();
       } catch (error) {
         resolve({error}); 
