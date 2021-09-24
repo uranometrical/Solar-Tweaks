@@ -1,16 +1,9 @@
-# lunartweaks
+# Lunar Tweaks
 
-## Project setup
-```
-npm install
-```
+Lunar Tweaks official software. All open source of course
 
-### Compiles and hot-reloads for development
-```
-npm run electron:serve
-```
-
-### Compiles and minifies for production
-```
-npm run electron:build
+If you want to build it manually :
+```bash
+$ npm install
+$ npm run electron:build
 ```
