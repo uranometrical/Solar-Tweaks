@@ -16,12 +16,25 @@ export async function checkLTFolder() {
   return new Promise((resolve) => {
     setTimeout(() => {
       try {
-        if(!fs.existsSync(LTFolderLocation)) {
+        let valid = true;
+        mappings.LTFolder.forEach(item => {
+          if(!fs.existsSync(`${LTFolderLocation}\\${item}`)) {
+            valid = false;
+          }
+        });
+        if(!valid) {
+          if(fs.existsSync(LTFolderLocation)) {
+            console.log(`Deleting old LT folder...`);
+            fs.rmSync(LTFolderLocation, { recursive: true, force: true });
+            console.log(`Old LT folder deleted`);
+          }
           console.log(`Creating LT folder...`);
           fse.copySync(`${__dirname}\\..\\template`, LTFolderLocation);
           console.log(`LT folder created...`);
           resolve();
-        } else resolve();
+        } else {
+          console.log(`LT folder is valid`);
+        }
       } catch (error) {
         resolve({error});
       }
@@ -153,15 +166,15 @@ export async function patch(currentFolderPath, patchName) {
             const searchForScriptLocation = `${LTFolderLocation}\\Scripts\\${patch.scripts.searchFor}`;
             const defaultSearchForScript = fs.readFileSync(searchForScriptLocation, { encoding: 'utf-8' });
             fs.writeFileSync(searchForScriptLocation, defaultSearchForScript
-              .replace('$dest', `${LTFolderLocation}\\\\AssemblyCode\\\\${patch.textFile}`)
+              .replace('$dest', `${LTFolderLocation}\\\\assembly.txt`)
               .replace('$classPath', patch.path)
               .replace('$method', patch.methodName));
             execSync(startRecaf(currentFolderPath, searchForScriptLocation));
             fs.writeFileSync(searchForScriptLocation, defaultSearchForScript);
             
             // Replace file
-            const assemblyCode = fs.readFileSync(`${LTFolderLocation}\\AssemblyCode\\${patch.textFile}`, { encoding: 'utf-8' });
-            fs.writeFileSync(`${LTFolderLocation}\\AssemblyCode\\${patch.textFile}`, assemblyCode.replaceAll(patch.searchFor, patch.replaceWith), { encoding: 'utf-8' });
+            const assemblyCode = fs.readFileSync(`${LTFolderLocation}\\assembly.txt`, { encoding: 'utf-8' });
+            fs.writeFileSync(`${LTFolderLocation}\\assembly.txt`, assemblyCode.replaceAll(patch.searchFor, patch.replaceWith), { encoding: 'utf-8' });
 
             // Replace with
             const replaceWithScriptLocation = `${LTFolderLocation}\\Scripts\\${patch.scripts.replaceWith}`
@@ -169,7 +182,7 @@ export async function patch(currentFolderPath, patchName) {
             fs.writeFileSync(replaceWithScriptLocation, defaultReplaceWithScript
               .replace('$classPath', patch.path)
               .replace('$method', patch.methodName)
-              .replace('$input', `${LTFolderLocation}\\\\AssemblyCode\\\\${patch.textFile}`)
+              .replace('$input', `${LTFolderLocation}\\\\assembly.txt`)
               .replace('$outputFile', `${currentFolderPath}\\\\currentJarFile.jar`));
             execSync(startRecaf(currentFolderPath, replaceWithScriptLocation));
             fs.writeFileSync(replaceWithScriptLocation, defaultReplaceWithScript);

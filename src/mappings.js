@@ -4,11 +4,20 @@ export const mappings = {
     fullId: "999aacad0bae3080cd1e15d784c3ce9506abcac5",
     filePath: "lunar/ax/IlIllIlIlIlIIllIIIlIlIllI"
   },
+  LTFolder: [
+    "Scripts\\",
+    "Scripts\\checkCommitId.txt",
+    "Scripts\\replace1.txt",
+    "Scripts\\replace2.txt",
+    "Temp\\",
+    "Temp\\file.txt",
+    "assembly.txt",
+    "recaf.jar"
+  ],
   patchs: {
     freelook: [
       {
         patchType: "replace",
-        textFile: "freelook.txt",
         scripts: {
           searchFor: "replace1.txt",
           replaceWith: "replace2.txt"
@@ -20,7 +29,6 @@ export const mappings = {
       },
       {
         patchType: "replace",
-        textFile: "freelook.txt",
         scripts: {
           searchFor: "replace1.txt",
           replaceWith: "replace2.txt"
@@ -32,7 +40,6 @@ export const mappings = {
       },
       {
         patchType: "replace",
-        textFile: "freelook.txt",
         scripts: {
           searchFor: "replace1.txt",
           replaceWith: "replace2.txt"
@@ -44,7 +51,6 @@ export const mappings = {
       },
       {
         patchType: "replace",
-        textFile: "freelook.txt",
         scripts: {
           searchFor: "replace1.txt",
           replaceWith: "replace2.txt"
@@ -58,7 +64,6 @@ export const mappings = {
     pinnedServers: [
       {
         patchType: "replace",
-        textFile: "pinnedServers.txt",
         scripts: {
           searchFor: "replace1.txt",
           replaceWith: "replace2.txt"
@@ -100,7 +105,6 @@ B:`
     modspacket: [
       {
         patchType: "replace",
-        textFile: "modspacket.txt",
         scripts: {
           searchFor: "replace1.txt",
           replaceWith: "replace2.txt"
