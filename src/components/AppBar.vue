@@ -35,9 +35,6 @@
               <a @click="openLink('https://www.youtube.com/c/SpeciallyMC')">His YouTube channel</a>
               <v-icon color="blue" size="20" class="ml-1">mdi-open-in-new</v-icon>
             </li>
-            <li>
-              <strong>Jordan</strong> for canceling us over and over again.
-            </li>
           </ul>
           <br>
           <span class="version">LunarTweaks <strong>v{{ softwareVersion }}</strong></span>
