@@ -155,6 +155,7 @@ export async function findCommitId(currentFolderPath) {
 
 export async function patch(currentFolderPath, patchName) {
   console.log(`Executing patch "${patchName}"...`);
+  fs.appendFileSync(`${LTFolderLocation}\\recaf-latest.log`, `\n\n\n------------------------------------------------\n\n\n`);
   return new Promise((resolve) => {
     setTimeout(() => {
       const patchs = mappings.patchs[patchName];
@@ -169,7 +170,8 @@ export async function patch(currentFolderPath, patchName) {
               .replace('$dest', `${LTFolderLocation}\\\\assembly.txt`)
               .replace('$classPath', patch.path)
               .replace('$method', patch.methodName));
-            execSync(startRecaf(currentFolderPath, searchForScriptLocation));
+            const searchForLog = execSync(startRecaf(currentFolderPath, searchForScriptLocation)).toString('utf-8');
+            fs.appendFileSync(`${LTFolderLocation}\\recaf-latest.log`, `\n\n[${new Date().toISOString()}] -----------\n${searchForLog}`);
             fs.writeFileSync(searchForScriptLocation, defaultSearchForScript);
             
             // Replace file
@@ -184,7 +186,8 @@ export async function patch(currentFolderPath, patchName) {
               .replace('$method', patch.methodName)
               .replace('$input', `${LTFolderLocation}\\\\assembly.txt`)
               .replace('$outputFile', `${currentFolderPath}\\\\currentJarFile.jar`));
-            execSync(startRecaf(currentFolderPath, replaceWithScriptLocation));
+            const replaceWithLog = execSync(startRecaf(currentFolderPath, replaceWithScriptLocation)).toString('utf-8');
+            fs.appendFileSync(`${LTFolderLocation}\\recaf-latest.log`, `\n\n[${new Date().toISOString()}] -----------\n${replaceWithLog}`);
             fs.writeFileSync(replaceWithScriptLocation, defaultReplaceWithScript);
             console.log(`Patch "${patchName}" executed`)
             resolve();
