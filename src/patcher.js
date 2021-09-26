@@ -138,7 +138,7 @@ export async function findCommitId(currentFolderPath) {
       try {
         const defaultScript = fs.readFileSync(scriptLocation, { encoding: 'utf8' });
         fs.writeFileSync(scriptLocation, defaultScript.replace('$commitIdFilePath', mappings.commit.filePath), { encoding: 'utf-8' });
-        const output = execSync(startRecaf(currentFolderPath, scriptLocation), { stdio: ['ignore', 'ignore', 'ignore' ] }).toString('utf-8');
+        const output = execSync(startRecaf(currentFolderPath, scriptLocation)).toString('utf-8');
         fs.writeFileSync(scriptLocation, defaultScript, { encoding: 'utf-8' });
         if(output.includes(mappings.commit.id) && output.includes(mappings.commit.fullId)) {
           console.log(`Commit ID found`);
@@ -171,7 +171,7 @@ export async function patch(currentFolderPath, patchName) {
               .replace('$dest', `${LTFolderLocation}\\\\assembly.txt`)
               .replace('$classPath', patch.path)
               .replace('$method', patch.methodName));
-            const searchForLog = execSync(startRecaf(currentFolderPath, searchForScriptLocation), { stdio: ['ignore', 'ignore', 'ignore' ] }).toString('utf-8');
+            const searchForLog = execSync(startRecaf(currentFolderPath, searchForScriptLocation)).toString('utf-8');
             fs.appendFileSync(`${LTFolderLocation}\\recaf-latest.log`, `\n\n[${new Date().toISOString()}] -----------\n${searchForLog}`);
             fs.writeFileSync(searchForScriptLocation, defaultSearchForScript);
             
@@ -187,7 +187,7 @@ export async function patch(currentFolderPath, patchName) {
               .replace('$method', patch.methodName)
               .replace('$input', `${LTFolderLocation}\\\\assembly.txt`)
               .replace('$outputFile', `${currentFolderPath}\\\\currentJarFile.jar`));
-            const replaceWithLog = execSync(startRecaf(currentFolderPath, replaceWithScriptLocation), { stdio: ['ignore', 'ignore', 'ignore' ] }).toString('utf-8');
+            const replaceWithLog = execSync(startRecaf(currentFolderPath, replaceWithScriptLocation)).toString('utf-8');
             fs.appendFileSync(`${LTFolderLocation}\\recaf-latest.log`, `\n\n[${new Date().toISOString()}] -----------\n${replaceWithLog}`);
             fs.writeFileSync(replaceWithScriptLocation, defaultReplaceWithScript);
             console.log(`Patch "${patchName}" executed`)
