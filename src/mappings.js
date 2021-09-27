@@ -12,7 +12,6 @@ export const mappings = {
     "Temp\\",
     "Temp\\file.txt",
     "assembly.txt",
-    "recaf-latest.log",
     "recaf.jar"
   ],
   patchs: {
@@ -121,8 +120,5 @@ AE:`,
         replaceWith: "AE:"
       }
     ]
-  },
-  customizations: {
-
   }
 }
