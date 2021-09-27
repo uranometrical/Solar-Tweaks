@@ -34,7 +34,6 @@ export async function checkLTFolder() {
           resolve();
         } else {
           console.log(`LT folder is valid`);
-          resolve();
         }
       } catch (error) {
         resolve({error});
