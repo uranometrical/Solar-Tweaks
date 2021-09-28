@@ -1,8 +1,8 @@
 export const mappings = {
   commit: {
-    id: "999aaca",
-    fullId: "999aacad0bae3080cd1e15d784c3ce9506abcac5",
-    filePath: "lunar/ax/IlIllIlIlIlIIllIIIlIlIllI"
+    id: "e976b25",
+    fullId: "e976b2532c4c7dfb5969b12ce882ad52d3dbdf38",
+    filePath: "lunar/ax/IllIIIlIlIIlIlIlIIIIlIlll"
   },
   LTFolder: [
     "Scripts\\",
@@ -22,43 +22,10 @@ export const mappings = {
           searchFor: "replace1.txt",
           replaceWith: "replace2.txt"
         },
-        path: "lunar/bT/IlIllIlIlIlIIllIIIlIlIllI",
-        methodName: "lllIIllIIlIIlIIIlllIlIIlI()Z",
-        searchFor: `LDC "hypixel.net"`,
-        replaceWith: `LDC "Cy0ze#4757"`
-      },
-      {
-        patchType: "replace",
-        scripts: {
-          searchFor: "replace1.txt",
-          replaceWith: "replace2.txt"
-        },
-        path: "lunar/cR/IIIIllIIlIIllIlIlIlllllll",
-        methodName: "IlIllIlIlIlIIllIIIlIlIllI(Ljava/lang/String;)Z",
-        searchFor: `LDC "hypixel.net"`,
-        replaceWith: `LDC "Cy0ze#4757"`
-      },
-      {
-        patchType: "replace",
-        scripts: {
-          searchFor: "replace1.txt",
-          replaceWith: "replace2.txt"
-        },
-        path: "lunar/dH/IIlIlIlllIllllIlIIllIlllI",
-        methodName: "<clinit>()V",
-        searchFor: `LDC "Hypixel BungeeCord"`,
-        replaceWith: `LDC "Cy0ze#4757"`
-      },
-      {
-        patchType: "replace",
-        scripts: {
-          searchFor: "replace1.txt",
-          replaceWith: "replace2.txt"
-        },
-        path: "lunar/dH/lllIIlIIIIIllIIIlllIlIIII",
-        methodName: "IlIllIlIlIlIIllIIIlIlIllI()V",
-        searchFor: `LDC "hypixel.net"`,
-        replaceWith: `LDC "Cy0ze#4757"`
+        path: "lunar/dC/lllIlIIIIlIIllllIlIlIlIIl",
+        methodName: "IllIIIlIlIIlIlIlIIIIlIlll(Lcom/google/gson/JsonObject;Ljava/util/function/Predicate;Llunar/aS/IIIIlIIIllllIlllIllIIlIIl;)V",
+        searchFor: `LDC "enabled"`,
+        replaceWith: `LDC "removedByLunarTweaks"`
       }
     ],
     pinnedServers: [
@@ -68,38 +35,10 @@ export const mappings = {
           searchFor: "replace1.txt",
           replaceWith: "replace2.txt"
         },
-        path: "lunar/cX/lIlIIIlllIllIllllllIIIIII",
-        methodName: "IlIllIlIlIlIIllIIIlIlIllI()Ljava/util/Set;",
-        searchFor: `A:
-LINE A 16
-NEW java/util/LinkedHashSet
-DUP
-NEW lunar/dn/IlIllIlIlIlIIllIIIlIlIllI
-DUP
-LDC "Lunar Network"
-LDC "lunar.gg"
-LDC -1L
-B:
-LINE B 18
-INVOKESTATIC java/lang/Long.valueOf(J)Ljava/lang/Long;
-GETSTATIC lunar/fX/IlIllIlIlIlIIllIIIlIlIllI.IlIllIlIlIlIIllIIIlIlIllI Llunar/fX/IlIllIlIlIlIIllIIIlIlIllI;
-GETSTATIC lunar/fX/IlIllIlIlIlIIllIIIlIlIllI.llIIIIlllIIIlIlllIlllIlIl Llunar/fX/IlIllIlIlIlIIllIIIlIlIllI;
-INVOKESTATIC com/google/common/collect/ImmutableList.of(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList;
-INVOKESPECIAL lunar/dn/IlIllIlIlIlIIllIIIlIlIllI.<init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/util/List;)V
-C:
-LINE C 17
-INVOKESTATIC com/google/common/collect/ImmutableList.of(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList;
-INVOKESPECIAL java/util/LinkedHashSet.<init>(Ljava/util/Collection;)V
-D:
-LINE D 16
-ARETURN`,
-        replaceWith: `A:
-LINE A 9
-NEW java/util/LinkedHashSet
-DUP
-INVOKESPECIAL java/util/LinkedHashSet.<init>()V
-ARETURN
-B:`
+        path: "lunar/dC/lllIlIIIIlIIllllIlIlIlIIl",
+        methodName: "run()V",
+        searchFor: `LDC "pinnedServers"`,
+        replaceWith: `LDC "removedBYLunarTweaks"`
       }
     ],
     modspacket: [
