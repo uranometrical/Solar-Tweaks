@@ -1,6 +1,6 @@
-# Lunar Tweaks
+# Solar Tweaks
 
-Lunar Tweaks official software. All open source of course
+Solar Tweaks official software. All open source of course
 
 If you want to build it manually :
 ```bash
