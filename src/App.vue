@@ -17,14 +17,16 @@ import Built from './components/Built.vue';
 
 export default {
   name: 'App',
+
   components: {
     AppBar,
     FileChooser,
     Patcher,
     Built
   },
+
   data: () => ({
-  }),
+  })
 };
 </script>
 

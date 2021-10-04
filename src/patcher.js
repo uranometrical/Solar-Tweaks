@@ -6,10 +6,11 @@ import electron from 'electron';
 import * as AdmZip from 'adm-zip';
 
 import { mappings } from './mappings';
+import { getSetting } from './settings';
 
-const LTFolderLocation = `${process.env.LOCALAPPDATA}\\LunarTweaks`;
-const LTTempFolderLocation = `${LTFolderLocation}\\Temp`;
-const lcJreLocation = `${process.env.USERPROFILE}\\.lunarclient\\jre\\zulu16.30.15-ca-fx-jre16.0.1-win_x64\\bin\\java.exe`;
+export const LTFolderLocation = `${process.env.LOCALAPPDATA}\\LunarTweaks`;
+export const LTTempFolderLocation = `${LTFolderLocation}\\Temp`;
+export const lcJreLocation = getSetting('jrePath');
 
 export async function checkLTFolder() {
   console.log(`Checking LT folder... (${LTFolderLocation})`);

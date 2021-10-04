@@ -1,8 +1,12 @@
 <template>
+  <div>
     <v-app-bar dark color="primary" class="flex-grow-0">
       <v-app-bar-title id="title">Lunar Tweaks</v-app-bar-title>
       <v-spacer></v-spacer>
-      <v-btn class="mr-5" @click="openLink('https://discord.gg/XDzgdRSWfn')">
+      <v-btn fab small class="mr-2" @click="openSettings()">
+        <v-icon dark>mdi-cog</v-icon>
+      </v-btn>
+      <v-btn class="mr-2" @click="openLink('https://discord.gg/XDzgdRSWfn')">
         <v-icon left>mdi-discord</v-icon>
         Discord
       </v-btn>
@@ -51,22 +55,33 @@
       </v-card>
       </v-dialog>
     </v-app-bar>
+    <Settings />
+  </div>
 </template>
 
 <script>
+import Settings from './Settings.vue';
+
 import electron from 'electron';
 
 export default {
   name: 'AppBar',
 
+  components: {
+    Settings
+  },
+
   data: () => ({
     showCredits: false,
-    softwareVersion: electron.remote.app.getVersion()
+    softwareVersion: electron.remote.app.getVersion(),
   }),
 
   methods: {
     openLink(link) {
       require('electron').shell.openExternal(link);
+    },
+    openSettings() {
+      this.$store.commit('markSettingsOpenedAs', true);
     }
   },
 
@@ -84,4 +99,9 @@ export default {
 .v-app-bar-title__content {
   width: 200px !important;
 }
+
+#settings-btn {
+  border-radius: 100%;
+}
+
 </style>

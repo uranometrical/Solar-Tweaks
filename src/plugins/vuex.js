@@ -10,6 +10,7 @@ export default new Vuex.Store({
     builded: false,
     outputPath: "",
     currentFolderPath: "",
+    settingsOpened: false
   },
   mutations: {
     markFileAsChoosed(state, bool) {
@@ -26,6 +27,9 @@ export default new Vuex.Store({
     },
     setOutputFilePath(state, path) {
       state.outputPath = path;
+    },
+    markSettingsOpenedAs(state, bool) {
+      state.settingsOpened = bool;
     }
   }
 });

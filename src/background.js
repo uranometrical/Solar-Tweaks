@@ -10,6 +10,10 @@ protocol.registerSchemesAsPrivileged([
   { scheme: 'app', privileges: { secure: true, standard: true } }
 ])
 
+// Settings
+import { setupSettings } from './settings';
+setupSettings()
+
 async function createWindow() {
   // Create the browser window.
   const win = new BrowserWindow({
