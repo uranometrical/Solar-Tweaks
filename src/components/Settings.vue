@@ -3,7 +3,7 @@
     <v-dialog persistent v-model="$store.state.settingsOpened" max-width="750px">
       <v-card>
         <v-card-title class="primary">Settings</v-card-title>
-        <v-card-subtitle class="mb-5 primary">Edit Lunar Tweaks settings here. When it's done press <strong>Save</strong>.</v-card-subtitle>
+        <v-card-subtitle class="mb-5 primary">Edit Solar Tweaks settings here. When it's done press <strong>Save</strong>.</v-card-subtitle>
         <div class="ml-5">
           <h4>Java File Path :</h4>
           <v-col cols="12" sm="11">

@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-app-bar dark color="primary" class="flex-grow-0">
-      <v-app-bar-title id="title">Lunar Tweaks</v-app-bar-title>
+      <v-app-bar-title id="title">Solar Tweaks</v-app-bar-title>
       <v-spacer></v-spacer>
       <v-btn fab small class="mr-2" @click="openSettings()">
         <v-icon dark>mdi-cog</v-icon>
@@ -20,9 +20,9 @@
           About
         </v-card-title>
         <v-card-text class="mt-5">
-          Lunar Tweaks
+          Solar Tweaks
           <br>
-          Official software of LunarTweaks (LT) Team
+          Official software of SolarTweaks (ST) Team
           <br><br>
           Designed and coded by 
           <strong>Cy0ze</strong><br><br>
@@ -41,7 +41,7 @@
             </li>
           </ul>
           <br>
-          <span class="version">LunarTweaks <strong>v{{ softwareVersion }}</strong></span>
+          <span class="version">SolarTweaks <strong>v{{ softwareVersion }}</strong></span>
         </v-card-text>
         <v-divider></v-divider>
         <v-card-actions>

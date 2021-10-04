@@ -1,7 +1,7 @@
 import fs from 'fs';
 import process from 'process';
 
-const settingsFile = `${process.env.LOCALAPPDATA}\\LunarTweaks\\settings.json`;
+const settingsFile = `${process.env.LOCALAPPDATA}\\SolarTweaks\\settings.json`;
 
 export function getSetting(key) {
   return JSON.parse(readSettings())[key]
@@ -44,17 +44,6 @@ export const defaultSettings = {
       fullId: "e976b2532c4c7dfb5969b12ce882ad52d3dbdf38",
       filePath: "lunar/ax/IllIIIlIlIIlIlIlIIIIlIlll"
     },
-    LTFolder: [
-      "Scripts\\",
-      "Scripts\\checkCommitId.txt",
-      "Scripts\\replace1.txt",
-      "Scripts\\replace2.txt",
-      "Temp\\",
-      "Temp\\file.txt",
-      "assembly.txt",
-      "recaf.jar",
-      "settings.json"
-    ],
     patchs: {
       freelook: [
         {
@@ -66,7 +55,7 @@ export const defaultSettings = {
           path: "lunar/dC/lllIlIIIIlIIllllIlIlIlIIl",
           methodName: "IllIIIlIlIIlIlIlIIIIlIlll(Lcom/google/gson/JsonObject;Ljava/util/function/Predicate;Llunar/aS/IIIIlIIIllllIlllIllIIlIIl;)V",
           searchFor: `LDC "enabled"`,
-          replaceWith: `LDC "removedByLunarTweaks"`
+          replaceWith: `LDC "removedBySolarTweaks"`
         }
       ],
       pinnedServers: [
@@ -79,7 +68,7 @@ export const defaultSettings = {
           path: "lunar/dC/lllIlIIIIlIIllllIlIlIlIIl",
           methodName: "run()V",
           searchFor: `LDC "pinnedServers"`,
-          replaceWith: `LDC "removedBYLunarTweaks"`
+          replaceWith: `LDC "removedBySolarTweaks"`
         }
       ],
       modspacket: [

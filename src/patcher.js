@@ -4,37 +4,48 @@ import process from 'process';
 import { execSync } from 'child_process';
 import electron from 'electron';
 import * as AdmZip from 'adm-zip';
-
-import { mappings } from './mappings';
 import { getSetting } from './settings';
 
-export const LTFolderLocation = `${process.env.LOCALAPPDATA}\\LunarTweaks`;
-export const LTTempFolderLocation = `${LTFolderLocation}\\Temp`;
-export const lcJreLocation = getSetting('jrePath');
+export const STFolderLocation = `${process.env.LOCALAPPDATA}\\SolarTweaks`;
+export const STTempFolderLocation = `${STFolderLocation}\\Temp`;
+const STFolder = [
+  "Scripts\\",
+  "Scripts\\checkCommitId.txt",
+  "Scripts\\replace1.txt",
+  "Scripts\\replace2.txt",
+  "Temp\\",
+  "Temp\\file.txt",
+  "assembly.txt",
+  "recaf.jar",
+  "settings.json"
+]
 
-export async function checkLTFolder() {
-  console.log(`Checking LT folder... (${LTFolderLocation})`);
+export async function checkSTFolder() {
+  console.log(`Checking ST folder... (${STFolderLocation})`);
   return new Promise((resolve) => {
     setTimeout(() => {
       try {
+        if(!fs.existsSync(STFolderLocation)) {
+          fs.mkdirSync(STFolderLocation);
+        }
         let valid = true;
-        mappings.LTFolder.forEach(item => {
-          if(!fs.existsSync(`${LTFolderLocation}\\${item}`)) {
+        STFolder.forEach(item => {
+          if(!fs.existsSync(`${STFolderLocation}\\${item}`)) {
             valid = false;
           }
         });
         if(!valid) {
-          if(fs.existsSync(LTFolderLocation)) {
-            console.log(`Deleting old LT folder...`);
-            fs.rmSync(LTFolderLocation, { recursive: true, force: true });
-            console.log(`Old LT folder deleted`);
+          if(fs.existsSync(STFolderLocation)) {
+            console.log(`Deleting old ST folder...`);
+            fs.rmSync(STFolderLocation, { recursive: true, force: true });
+            console.log(`Old ST folder deleted`);
           }
-          console.log(`Creating LT folder...`);
-          fse.copySync(`${__dirname}\\..\\template`, LTFolderLocation);
-          console.log(`LT folder created...`);
+          console.log(`Creating ST folder...`);
+          fse.copySync(`${__dirname}\\..\\template`, STFolderLocation);
+          console.log(`ST folder created...`);
           resolve();
         } else {
-          console.log(`LT folder is valid`);
+          console.log(`ST folder is valid`);
           resolve();
         }
       } catch (error) {
@@ -48,7 +59,7 @@ export async function checkJavaInstallation() {
   console.log(`Checking Java Installation...`);
   return new Promise((resolve) => {
     setTimeout(() => {
-      if(fs.existsSync(lcJreLocation)) {
+      if(fs.existsSync(getSetting('jrePath'))) {
         console.log(`Java is installed`);
         resolve(true);
       } else {
@@ -60,11 +71,11 @@ export async function checkJavaInstallation() {
 }
 
 export async function copyJarFileToTemp(filePath) {
-  console.log(`Copying JAR file to Temp folder... (${LTTempFolderLocation})`);
+  console.log(`Copying JAR file to Temp folder... (${STTempFolderLocation})`);
   return new Promise((resolve) => {
     try {
       const date = new Date();
-      const currentFolder = `${LTTempFolderLocation}\\${date.getTime().toString()}`
+      const currentFolder = `${STTempFolderLocation}\\${date.getTime().toString()}`
       fs.mkdirSync(currentFolder);
       console.log(`Creating temporary folder... (${currentFolder})`);
       setTimeout(() => {
@@ -81,6 +92,7 @@ export async function copyJarFileToTemp(filePath) {
 
 export async function convertLclasses(currentFolderPath) {
   console.log(`Converting lclasses...`);
+  const mappings = getSetting('mappings');
   return new Promise((resolve) => {
     setTimeout(() => {
       try {
@@ -132,10 +144,11 @@ export async function convertClasses(currentFolderPath) {
 }
 
 export async function findCommitId(currentFolderPath) {
+  const mappings = getSetting('mappings');
   console.log(`Finding commit ID...`);
   return new Promise((resolve) => {
     setTimeout(() => {
-      const scriptLocation = `${LTFolderLocation}\\Scripts\\checkCommitId.txt`;
+      const scriptLocation = `${STFolderLocation}\\Scripts\\checkCommitId.txt`;
       try {
         const defaultScript = fs.readFileSync(scriptLocation, { encoding: 'utf8' });
         fs.writeFileSync(scriptLocation, defaultScript.replace('$commitIdFilePath', mappings.commit.filePath), { encoding: 'utf-8' });
@@ -156,6 +169,7 @@ export async function findCommitId(currentFolderPath) {
 }
 
 export async function patch(currentFolderPath, patchName) {
+  const mappings = getSetting('mappings');
   console.log(`Executing patch "${patchName}"...`);
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -165,26 +179,26 @@ export async function patch(currentFolderPath, patchName) {
         switch (patch.patchType) {
           case "replace": {
             // Search for
-            const searchForScriptLocation = `${LTFolderLocation}\\Scripts\\${patch.scripts.searchFor}`;
+            const searchForScriptLocation = `${STFolderLocation}\\Scripts\\${patch.scripts.searchFor}`;
             const defaultSearchForScript = fs.readFileSync(searchForScriptLocation, { encoding: 'utf-8' });
             fs.writeFileSync(searchForScriptLocation, defaultSearchForScript
-              .replace('$dest', `${LTFolderLocation}\\\\assembly.txt`)
+              .replace('$dest', `${STFolderLocation}\\\\assembly.txt`)
               .replace('$classPath', patch.path)
               .replace('$method', patch.methodName));
             execSync(startRecaf(currentFolderPath, searchForScriptLocation));
             fs.writeFileSync(searchForScriptLocation, defaultSearchForScript);
             
             // Replace file
-            const assemblyCode = fs.readFileSync(`${LTFolderLocation}\\assembly.txt`, { encoding: 'utf-8' });
-            fs.writeFileSync(`${LTFolderLocation}\\assembly.txt`, assemblyCode.replaceAll(patch.searchFor, patch.replaceWith), { encoding: 'utf-8' });
+            const assemblyCode = fs.readFileSync(`${STFolderLocation}\\assembly.txt`, { encoding: 'utf-8' });
+            fs.writeFileSync(`${STFolderLocation}\\assembly.txt`, assemblyCode.replaceAll(patch.searchFor, patch.replaceWith), { encoding: 'utf-8' });
 
             // Replace with
-            const replaceWithScriptLocation = `${LTFolderLocation}\\Scripts\\${patch.scripts.replaceWith}`
+            const replaceWithScriptLocation = `${STFolderLocation}\\Scripts\\${patch.scripts.replaceWith}`
             const defaultReplaceWithScript = fs.readFileSync(replaceWithScriptLocation, { encoding: 'utf-8' });
             fs.writeFileSync(replaceWithScriptLocation, defaultReplaceWithScript
               .replace('$classPath', patch.path)
               .replace('$method', patch.methodName)
-              .replace('$input', `${LTFolderLocation}\\\\assembly.txt`)
+              .replace('$input', `${STFolderLocation}\\\\assembly.txt`)
               .replace('$outputFile', `${currentFolderPath}\\\\currentJarFile.jar`));
             execSync(startRecaf(currentFolderPath, replaceWithScriptLocation));
             fs.writeFileSync(replaceWithScriptLocation, defaultReplaceWithScript);
@@ -257,5 +271,5 @@ export async function clearCache(currentFolderPath) {
 }
 
 function startRecaf(currentFolderPath, scriptLocation) {
-  return `"${lcJreLocation}" -jar "${LTFolderLocation}\\recaf.jar" "--input=${currentFolderPath.replaceAll('/', '\\\\').replaceAll('\\', '\\\\')}\\\\currentJarFile.jar" --cli "--script=${scriptLocation}"`;
+  return `"${getSetting('jrePath')}" -jar "${STFolderLocation}\\recaf.jar" "--input=${currentFolderPath.replaceAll('/', '\\\\').replaceAll('\\', '\\\\')}\\\\currentJarFile.jar" --cli "--script=${scriptLocation}"`;
 }

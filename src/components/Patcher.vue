@@ -34,7 +34,7 @@
       </div>
     </v-card>
     <v-card id="patcher-card" elevation="5"  v-if="!isLoading">
-      <v-card-title>Lunar Tweaks Patcher</v-card-title>
+      <v-card-title>Solar Tweaks Patcher</v-card-title>
       <v-btn :disabled="buildButtonDisabled == true" dark color="primary" id="save-btn" @click="saveBuild()">
         <v-icon left>mdi-content-save</v-icon>
         Save build
@@ -99,7 +99,7 @@ export default {
     currentFolder: "",
     currentTab: "tab-Tweaks",
     steps: [
-      { name: "Checking LT folder", done: false, inProgress: false, error: false },
+      { name: "Checking ST folder", done: false, inProgress: false, error: false },
       { name: "Checking Java installation", done: false, inProgress: false, error: false },
       { name: "Copying JAR file to temp", done: false, inProgress: false, error: false },
       { name: "Converting classes", done: false, inProgress: false, error: false },
@@ -141,9 +141,9 @@ export default {
     },
     async setupPatcher() {
         this.startStep(0);
-        const LTFolderCheck = await patcher.checkLTFolder();
-        if(typeof LTFolderCheck === 'object') {
-          this.showErrorDialog(LTFolderCheck.error);
+        const STFolderCheck = await patcher.checkSTFolder();
+        if(typeof STFolderCheck === 'object') {
+          this.showErrorDialog(STFolderCheck.error);
           return;
         }
         this.endStep(0);
@@ -176,7 +176,7 @@ export default {
         this.startStep(4);
         const commitId = await patcher.findCommitId(this.currentFolder);
         if(commitId === null) {
-          this.errorOccuredOnStep(4, "Wrong Lunar version. Try to update LunarClient/LunarTweaks.");
+          this.errorOccuredOnStep(4, "Wrong Lunar version. Try to update LunarClient/SolarTweaks.");
           return;
         }
         if(typeof commitId === 'object') {

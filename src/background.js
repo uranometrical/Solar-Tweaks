@@ -1,5 +1,15 @@
 'use strict'
 
+// Settings
+import { setupSettings } from './settings';
+import { checkSTFolder } from './patcher';
+
+// Checking files
+(async () => {
+  await checkSTFolder();
+  setupSettings();
+})();
+
 import { app, protocol, BrowserWindow } from 'electron'
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
@@ -9,10 +19,6 @@ const isDevelopment = process.env.NODE_ENV !== 'production'
 protocol.registerSchemesAsPrivileged([
   { scheme: 'app', privileges: { secure: true, standard: true } }
 ])
-
-// Settings
-import { setupSettings } from './settings';
-setupSettings()
 
 async function createWindow() {
   // Create the browser window.
