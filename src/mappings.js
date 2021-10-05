@@ -1,8 +1,8 @@
 export const mappings = {
   "commit": {
-    "id": "5373836",
-    "fullId": "53738361ada7f9681785d2cdb07836d1602f595c",
-    "filePath": "lunar/ax/llIlIIllIIllIIlIIIlIllllI"
+    "id": "8d78a30",
+    "fullId": "8d78a3066858c8b87e924b15c4d047a5ceae928b",
+    "filePath": "lunar/ax/llIIIlllllIIIllllIIIIIIIl"
   },
   "LTFolder": [
     "Scripts\\",
@@ -22,8 +22,8 @@ export const mappings = {
           "searchFor": "replace1.txt",
           "replaceWith": "replace2.txt"
         },
-        "path": "lunar/dC/lllllllllIIIlIIllllllIIll",
-        "methodName": "llIlIIllIIllIIlIIIlIllllI(Lcom/google/gson/JsonObject;Ljava/util/function/Predicate;Llunar/aS/IllllllIllIIllIIlIIlllIlI;)V",
+        "path": "lunar/dC/llIlIlIllIllIllIIIIIIIIlI",
+        "methodName": "llIIIlllllIIIllllIIIIIIIl(Lcom/google/gson/JsonObject;Ljava/util/function/Predicate;Llunar/aS/IIllIllIIIlIIIlIIIlIlllll;)V",
         "searchFor": "LDC \"enabled\"",
         "replaceWith": "LDC \"removedByLunarTweaks\""
       }
@@ -35,7 +35,7 @@ export const mappings = {
           "searchFor": "replace1.txt",
           "replaceWith": "replace2.txt"
         },
-        "path": "lunar/dC/lllllllllIIIlIIllllllIIll",
+        "path": "lunar/dC/llIlIlIllIllIllIIIIIIIIlI",
         "methodName": "run()V",
         "searchFor": "LDC \"pinnedServers\"",
         "replaceWith": "LDC \"removedByLunarTweaks\""
