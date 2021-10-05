@@ -1,10 +1,10 @@
 export const mappings = {
-  commit: {
-    id: "e976b25",
-    fullId: "e976b2532c4c7dfb5969b12ce882ad52d3dbdf38",
-    filePath: "lunar/ax/IllIIIlIlIIlIlIlIIIIlIlll"
+  "commit": {
+    "id": "5373836",
+    "fullId": "53738361ada7f9681785d2cdb07836d1602f595c",
+    "filePath": "lunar/ax/llIlIIllIIllIIlIIIlIllllI"
   },
-  LTFolder: [
+  "LTFolder": [
     "Scripts\\",
     "Scripts\\checkCommitId.txt",
     "Scripts\\replace1.txt",
@@ -14,49 +14,44 @@ export const mappings = {
     "assembly.txt",
     "recaf.jar"
   ],
-  patchs: {
-    freelook: [
+  "patchs": {
+    "freelook": [
       {
-        patchType: "replace",
-        scripts: {
-          searchFor: "replace1.txt",
-          replaceWith: "replace2.txt"
+        "patchType": "replace",
+        "scripts": {
+          "searchFor": "replace1.txt",
+          "replaceWith": "replace2.txt"
         },
-        path: "lunar/dC/lllIlIIIIlIIllllIlIlIlIIl",
-        methodName: "IllIIIlIlIIlIlIlIIIIlIlll(Lcom/google/gson/JsonObject;Ljava/util/function/Predicate;Llunar/aS/IIIIlIIIllllIlllIllIIlIIl;)V",
-        searchFor: `LDC "enabled"`,
-        replaceWith: `LDC "removedByLunarTweaks"`
+        "path": "lunar/dC/lllllllllIIIlIIllllllIIll",
+        "methodName": "llIlIIllIIllIIlIIIlIllllI(Lcom/google/gson/JsonObject;Ljava/util/function/Predicate;Llunar/aS/IllllllIllIIllIIlIIlllIlI;)V",
+        "searchFor": "LDC \"enabled\"",
+        "replaceWith": "LDC \"removedByLunarTweaks\""
       }
     ],
-    pinnedServers: [
+    "pinnedServers": [
       {
-        patchType: "replace",
-        scripts: {
-          searchFor: "replace1.txt",
-          replaceWith: "replace2.txt"
+        "patchType": "replace",
+        "scripts": {
+          "searchFor": "replace1.txt",
+          "replaceWith": "replace2.txt"
         },
-        path: "lunar/dC/lllIlIIIIlIIllllIlIlIlIIl",
-        methodName: "run()V",
-        searchFor: `LDC "pinnedServers"`,
-        replaceWith: `LDC "removedBYLunarTweaks"`
+        "path": "lunar/dC/lllllllllIIIlIIllllllIIll",
+        "methodName": "run()V",
+        "searchFor": "LDC \"pinnedServers\"",
+        "replaceWith": "LDC \"removedByLunarTweaks\""
       }
     ],
-    modspacket: [
+    "modspacket": [
       {
-        patchType: "replace",
-        scripts: {
-          searchFor: "replace1.txt",
-          replaceWith: "replace2.txt"
+        "patchType": "replace",
+        "scripts": {
+          "searchFor": "replace1.txt",
+          "replaceWith": "replace2.txt"
         },
-        path: "com/lunarclient/bukkitapi/nethandler/LCPacket",
-        methodName: "<clinit>()V",
-        searchFor: `AD:
-LINE AD 56
-BIPUSH 31
-LDC Lcom/lunarclient/bukkitapi/nethandler/client/LCPacketModSettings;
-INVOKESTATIC com/lunarclient/bukkitapi/nethandler/LCPacket.addPacket(ILjava/lang/Class;)V
-AE:`,
-        replaceWith: "AE:"
+        "path": "com/lunarclient/bukkitapi/nethandler/LCPacket",
+        "methodName": "<clinit>()V",
+        "searchFor": "AD:\nLINE AD 56\nBIPUSH 31\nLDC Lcom/lunarclient/bukkitapi/nethandler/client/LCPacketModSettings;\nINVOKESTATIC com/lunarclient/bukkitapi/nethandler/LCPacket.addPacket(ILjava/lang/Class;)V\nAE:",
+        "replaceWith": "AE:"
       }
     ]
   }
