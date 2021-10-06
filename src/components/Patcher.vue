@@ -44,7 +44,7 @@
           <v-icon left>mdi-cog-outline</v-icon>
           <span>Tweaks</span>
         </v-tab>
-        <v-tab disabled>
+        <v-tab>
           <v-icon left>mdi-auto-fix</v-icon>
           <span>Customizations</span>
         </v-tab>
@@ -71,9 +71,20 @@
         </v-tab-item>
         <v-tab-item>
           <v-card flat class="card-item">
-            <v-card-text>
-              <p>Not available</p>
-            </v-card-text>
+            <v-card-title>Customizations</v-card-title>
+            <v-card-subtitle>Customize your game, make your game look like you</v-card-subtitle>
+            <div v-for="(customization, index) in customizations" :key="index" class="patch-item">
+              <span class="mt-2 ml-5">{{ customization.name }} :</span>
+              <div class="ml-5 mr-2 customization-textfield">
+                <v-text-field v-model="customization.text" outlined dense label="Value"></v-text-field>
+              </div>
+              <v-tooltip bottom>
+                <template v-slot:activator="{ on, attrs }">
+                  <v-icon v-on="on" v-bind="attrs" color="grey" size="22" right class="mb-6">mdi-help-circle</v-icon>
+                </template>
+                <span>{{ customization.tooltip }}</span>
+              </v-tooltip>
+            </div>
           </v-card>
         </v-tab-item>
         <v-tab-item>
@@ -114,6 +125,11 @@ export default {
       { name: "Freelook & AutoTextHotkey", internalName: "freelook", tooltip: "Get back Freelook and AutoTextHotkey on Hypixel" },
       { name: "Pinned servers", internalName: "pinnedServers", tooltip: "Remove any promoted/pinned servers from the server list" },
       { name: "Block server from disabling mods", internalName: "modspacket", tooltip: "Completely remove the packet : \"LCPacketModSettings\"" }
+    ],
+    customizations: [
+      { name: "Level head prefix", internalName: "levelHead", tooltip: "Customize your Hypixel Level head prefix", text: "" },
+      { name: "Auto GG", internalName: "autogg", tooltip: "Change the default 'gg' to whatever you like", text: "" },
+      { name: "Nick hider", internalName: "nick", tooltip: "Customize the name of the Nick Hider", text: "" }
     ],
     selectedPatches: [],
     buildButtonDisabled: false,
@@ -209,7 +225,13 @@ export default {
     },
     async saveBuild() {
       this.buildButtonDisabled = true;
-      const patched = await patcher.saveBuild(this.currentFolder, this.selectedPatches);
+      const customizationList = [];
+      this.customizations.forEach(customization => {
+        if(customization.text) {
+          customizationList.push({ internalName: customization.internalName, text: customization.text });
+        }
+      });
+      const patched = await patcher.saveBuild(this.currentFolder, this.selectedPatches, customizationList);
       if(typeof patched === 'object') {
         this.showErrorDialog(patched.error);
         return;
@@ -268,5 +290,9 @@ export default {
 
 .patch-item {
   display: flex;
+}
+
+.customization-textfield {
+  width: 500px;
 }
 </style>

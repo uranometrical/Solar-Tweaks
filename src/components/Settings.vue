@@ -57,7 +57,6 @@ export default {
     async save() {
       this.saveLoading = true;
       for (const [key, value] of Object.entries(this.settings)) {
-        console.log(value);
         await writeSetting(key, value);
       }
       this.$store.commit('markSettingsOpenedAs', false)

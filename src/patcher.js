@@ -168,7 +168,7 @@ export async function findCommitId(currentFolderPath) {
   });
 }
 
-export async function patch(currentFolderPath, patchName) {
+export async function patch(currentFolderPath, patchName, searchFor = null, replaceWith = null) {
   const mappings = getSetting('mappings');
   console.log(`Executing patch "${patchName}"...`);
   return new Promise((resolve) => {
@@ -185,12 +185,19 @@ export async function patch(currentFolderPath, patchName) {
               .replace('$dest', `${STFolderLocation}\\\\assembly.txt`)
               .replace('$classPath', patch.path)
               .replace('$method', patch.methodName));
-            execSync(startRecaf(currentFolderPath, searchForScriptLocation));
+            console.log(execSync(startRecaf(currentFolderPath, searchForScriptLocation)).toString());
             fs.writeFileSync(searchForScriptLocation, defaultSearchForScript);
             
             // Replace file
             const assemblyCode = fs.readFileSync(`${STFolderLocation}\\assembly.txt`, { encoding: 'utf-8' });
-            fs.writeFileSync(`${STFolderLocation}\\assembly.txt`, assemblyCode.replaceAll(patch.searchFor, patch.replaceWith), { encoding: 'utf-8' });
+            let newAssemblyCode = assemblyCode.replaceAll(patch.searchFor, patch.replaceWith);
+            
+            // Check for replace
+            if(searchFor !== null && replaceWith !== null) {
+              newAssemblyCode = newAssemblyCode.replaceAll(searchFor, replaceWith);
+            }
+
+            fs.writeFileSync(`${STFolderLocation}\\assembly.txt`, newAssemblyCode, { encoding: 'utf-8' });
 
             // Replace with
             const replaceWithScriptLocation = `${STFolderLocation}\\Scripts\\${patch.scripts.replaceWith}`
@@ -216,12 +223,17 @@ export async function patch(currentFolderPath, patchName) {
   });
 }
 
-export async function saveBuild(currentFolderPath, selectedPatches) {
+export async function saveBuild(currentFolderPath, selectedPatches, customizations) {
   console.log(`Saving build...`);
   // Applying patches
   for (const patchIndex in selectedPatches) {
     const patchName = selectedPatches[patchIndex];
     await patch(currentFolderPath, patchName);
+  }
+
+  for (const customizationIndex in customizations) {
+    const customization = customizations[customizationIndex];
+    await patch(currentFolderPath, customization.internalName, "$custom_text", customization.text);
   }
 
   await convertClasses(currentFolderPath);

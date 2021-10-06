@@ -6,7 +6,7 @@
       <v-btn fab small class="mr-2" @click="openSettings()">
         <v-icon dark>mdi-cog</v-icon>
       </v-btn>
-      <v-btn class="mr-2" @click="openLink('https://discord.gg/XDzgdRSWfn')">
+      <v-btn class="mr-2" @click="openLink('https://discord.gg/Solar-Tweaks')">
         <v-icon left>mdi-discord</v-icon>
         Discord
       </v-btn>
@@ -45,7 +45,7 @@
         </v-card-text>
         <v-divider></v-divider>
         <v-card-actions>
-          <v-btn color="primary" text @click="openLink('https://github.com/RichardDorian/Lunar-Tweaks')">
+          <v-btn color="primary" text @click="openLink('https://github.com/RichardDorian/Solar-Tweaks')">
             <v-icon left>mdi-github</v-icon>
             <span>GitHub</span>
           </v-btn>

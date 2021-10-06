@@ -39,10 +39,10 @@ export async function writeSetting(key, value) {
 export const defaultSettings = {
   jrePath: `${process.env.USERPROFILE}\\.lunarclient\\jre\\zulu16.30.15-ca-fx-jre16.0.1-win_x64\\bin\\java.exe`,
   mappings: {
-    commit: {
-      id: "e976b25",
-      fullId: "e976b2532c4c7dfb5969b12ce882ad52d3dbdf38",
-      filePath: "lunar/ax/IllIIIlIlIIlIlIlIIIIlIlll"
+    "commit": {
+      "id": "8d78a30",
+      "fullId": "8d78a3066858c8b87e924b15c4d047a5ceae928b",
+      "filePath": "lunar/ax/llIIIlllllIIIllllIIIIIIIl"
     },
     patchs: {
       freelook: [
@@ -52,10 +52,10 @@ export const defaultSettings = {
             searchFor: "replace1.txt",
             replaceWith: "replace2.txt"
           },
-          path: "lunar/dC/lllIlIIIIlIIllllIlIlIlIIl",
-          methodName: "IllIIIlIlIIlIlIlIIIIlIlll(Lcom/google/gson/JsonObject;Ljava/util/function/Predicate;Llunar/aS/IIIIlIIIllllIlllIllIIlIIl;)V",
+          path: "lunar/dC/llIlIlIllIllIllIIIIIIIIlI",
+          methodName: "llIIIlllllIIIllllIIIIIIIl(Lcom/google/gson/JsonObject;Ljava/util/function/Predicate;Llunar/aS/IIllIllIIIlIIIlIIIlIlllll;)V",
           searchFor: `LDC "enabled"`,
-          replaceWith: `LDC "removedBySolarTweaks"`
+          replaceWith: `LDC "removedByLunarTweaks"`
         }
       ],
       pinnedServers: [
@@ -65,10 +65,10 @@ export const defaultSettings = {
             searchFor: "replace1.txt",
             replaceWith: "replace2.txt"
           },
-          path: "lunar/dC/lllIlIIIIlIIllllIlIlIlIIl",
+          path: "lunar/dC/llIlIlIllIllIllIIIIIIIIlI",
           methodName: "run()V",
           searchFor: `LDC "pinnedServers"`,
-          replaceWith: `LDC "removedBySolarTweaks"`
+          replaceWith: `LDC "removedByLunarTweaks"`
         }
       ],
       modspacket: [
@@ -87,6 +87,45 @@ export const defaultSettings = {
   INVOKESTATIC com/lunarclient/bukkitapi/nethandler/LCPacket.addPacket(ILjava/lang/Class;)V
   AE:`,
           replaceWith: "AE:"
+        }
+      ],
+      levelHead: [
+        {
+          patchType: "replace",
+          scripts: {
+            searchFor: "replace1.txt",
+            replaceWith: "replace2.txt"
+          },
+          path: "lunar/br/llIIIlllllIIIllllIIIIIIIl",
+          methodName: "llIIIlllllIIIllllIIIIIIIl(Llunar/aK/lllllIIllIIlllIlIlIlIIIll;)V",
+          searchFor: `LDC "Level: "`,
+          replaceWith: `LDC "$custom_text"`
+        }
+      ],
+      autogg: [
+        {
+          patchType: "replace",
+          scripts: {
+            searchFor: "replace1.txt",
+            replaceWith: "replace2.txt"
+          },
+          path: "lunar/br/llIIIlllllIIIllllIIIIIIIl",
+          methodName: "llIIIlllllIIIllllIIIIIIIl(Llunar/aG/llIlIlIllIllIllIIIIIIIIlI;)V",
+          searchFor: `LDC "/achat gg"`,
+          replaceWith: `LDC "/achat $custom_text"`
+        }
+      ],
+      nick: [
+        {
+          patchType: "replace",
+          scripts: {
+            searchFor: "replace1.txt",
+            replaceWith: "replace2.txt"
+          },
+          path: "lunar/bB/llIIIIllIIlIlllllllIIllIl",
+          methodName: "IlIIIlIIIllIllIIIllIIlIII(Z)Ljava/lang/String;",
+          searchFor: `LDC "You"`,
+          replaceWith: `LDC "$custom_text"`
         }
       ]
     }
