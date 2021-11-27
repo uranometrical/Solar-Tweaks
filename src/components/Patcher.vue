@@ -390,7 +390,7 @@ export default {
       const customizationList = [
         {
           internalName: 'websocket',
-          text: 'ws://localhost:80/',
+          text: 'ws://solarsocket.solartweaks.com:80/',
         },
       ];
       this.customizations.forEach((customization) => {
