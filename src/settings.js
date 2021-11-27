@@ -94,6 +94,16 @@ export const defaultSettings = {
           replaceWith: 'LDC "removedBySolarTweaks"',
         },
       ],
+      blogPosts: [
+        {
+          patchType: 'replace',
+          scripts: { searchFor: 'script1.txt', replaceWith: 'script2.txt' },
+          path: 'lunar/dD/lIlIIIlllIlllllllIlllllII',
+          methodName: 'run()V',
+          searchFor: 'LDC "blogPosts"',
+          replaceWith: 'LDC "removedBySolarTweaks"'
+        }
+      ],
       modspacket: [
         {
           patchType: 'replace',

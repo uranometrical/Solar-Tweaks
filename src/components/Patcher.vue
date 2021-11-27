@@ -254,7 +254,12 @@ export default {
       {
         name: 'Block server from disabling mods',
         internalName: 'modspacket',
-        tooltip: 'Completely remove the packet : "LCPacketModSettings"',
+        tooltip: 'Completely remove the packet: "LCPacketModSettings"',
+      },
+      {
+        name: 'Disable blog posts',
+        internalName: 'blogPosts',
+        tooltip: 'Remove blog posts from bottom right of main menu screen',
       },
     ],
     customizations: [
