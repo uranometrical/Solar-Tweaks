@@ -16,11 +16,17 @@ export function setupSettings() {
     writeDefaultSettings();
   }
 
+  if (defaultSettings.settingsVersion > getSetting('settingsVersion')) {
+    console.log('Settings file is out of date, updating...');
+    writeDefaultSettings();
+  }
+
   try {
     const settings = [
       'jrePath',
       'autoSelectFile',
       'checkForMappingsUpdates',
+      'settingsVersion',
       'mappings',
     ];
     settings.forEach((setting) => {
@@ -63,9 +69,10 @@ export async function writeSetting(key, value) {
 }
 
 export const defaultSettings = {
-  jrePath: `${process.env.USERPROFILE}\\.lunarclient\\jre\\zulu16.30.15-ca-fx-jre16.0.1-win_x64\\bin\\java.exe`,
+  jrePath: `${process.env.JAVA_HOME}\\bin\\java.exe`,
   autoSelectFile: true,
   checkForMappingsUpdates: true,
+  settingsVersion: 1,
   mappings: {
     commit: {
       id: '65e9251',
@@ -101,8 +108,8 @@ export const defaultSettings = {
           path: 'lunar/dD/lIlIIIlllIlllllllIlllllII',
           methodName: 'run()V',
           searchFor: 'LDC "blogPosts"',
-          replaceWith: 'LDC "removedBySolarTweaks"'
-        }
+          replaceWith: 'LDC "removedBySolarTweaks"',
+        },
       ],
       modspacket: [
         {

@@ -7,7 +7,7 @@
     >
       <v-card>
         <v-card-title class="primary">Settings</v-card-title>
-        <v-card-subtitle class="mb-5 primary"
+        <v-card-subtitle class="mb-2 primary"
           >Edit Solar Tweaks settings here. When it's done press
           <strong>Save</strong>.</v-card-subtitle
         >
@@ -16,7 +16,7 @@
           <v-col cols="12" sm="11" class="mt-n5">
             <v-text-field
               v-model="settings.jrePath"
-              @click="openFileChooser()"
+              @click="setNewJrePath()"
             ></v-text-field>
           </v-col>
         </div>
@@ -114,7 +114,7 @@ export default {
       return new Promise((resolve) => {
         const newPath = this.openFileChooser(
           'Choose a Java executable...',
-          getSetting('jrePath'),
+          undefined,
           [{ name: 'EXE File', extensions: ['exe'] }]
         );
         if (newPath != null) {

@@ -325,7 +325,11 @@ export default {
       this.startStep(1);
       const javaInstallation = await patcher.checkJavaInstallation();
       if (!javaInstallation) {
-        this.errorOccuredOnStep(1, 'Java is not installed on your computer');
+        this.errorOccuredOnStep(
+          1,
+          'Java is not installed on your computer! Click on help to download java.',
+          'https://adoptium.net/'
+        );
         return;
       }
       this.endStep(1);
