@@ -23,7 +23,9 @@ export async function checkIndex() {
 
 export async function fetchIndex() {
   try {
-    return (await axios.get('http://localhost:8085/indexFile')).data;
+    return (
+      await axios.get('http://solarsocket.solartweaks.com:8085/indexFile')
+    ).data;
   } catch (error) {
     return false;
   }
