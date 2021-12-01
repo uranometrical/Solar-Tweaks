@@ -75,18 +75,21 @@ export const defaultSettings = {
   settingsVersion: 1,
   mappings: {
     commit: {
-      id: '65e9251',
-      fullId: '65e9251f4ec590bef97836dd6dc2261333645c83',
-      filePath: 'lunar/ax/IllIlllllIIllIllIIIlllllI',
+      id: 'b8be23c',
+      fullId: 'b8be23c82f334a5e956127e05308de50848b1082',
+      filePath: 'lunar/as/IlIlIllIIllllIllllllIIlIl',
     },
     patchs: {
       freelook: [
         {
           patchType: 'replace',
-          scripts: { searchFor: 'script1.txt', replaceWith: 'script2.txt' },
-          path: 'lunar/dD/lIlIIIlllIlllllllIlllllII',
+          scripts: {
+            searchFor: 'script1.txt',
+            replaceWith: 'script2.txt',
+          },
+          path: 'lunar/dD/IlIlIllIIllllIllllllIIlIl',
           methodName:
-            'IllIlllllIIllIllIIIlllllI(Lcom/google/gson/JsonObject;Ljava/util/function/Predicate;Llunar/aT/llllllIlIlIIlIIIllllIllIl;)V',
+            'IIIIlllIIIlllllIIlllIIIIl(Lcom/google/gson/JsonObject;Ljava/util/function/Predicate;Llunar/aT/llIIllIIllIlIlIllIlllIIIl;)V',
           searchFor: 'LDC "enabled"',
           replaceWith: 'LDC "removedBySolarTweaks"',
         },
@@ -94,8 +97,11 @@ export const defaultSettings = {
       pinnedServers: [
         {
           patchType: 'replace',
-          scripts: { searchFor: 'script1.txt', replaceWith: 'script2.txt' },
-          path: 'lunar/dD/lIlIIIlllIlllllllIlllllII',
+          scripts: {
+            searchFor: 'script1.txt',
+            replaceWith: 'script2.txt',
+          },
+          path: 'lunar/dD/IlIlIllIIllllIllllllIIlIl',
           methodName: 'run()V',
           searchFor: 'LDC "pinnedServers"',
           replaceWith: 'LDC "removedBySolarTweaks"',
@@ -104,8 +110,11 @@ export const defaultSettings = {
       blogPosts: [
         {
           patchType: 'replace',
-          scripts: { searchFor: 'script1.txt', replaceWith: 'script2.txt' },
-          path: 'lunar/dD/lIlIIIlllIlllllllIlllllII',
+          scripts: {
+            searchFor: 'script1.txt',
+            replaceWith: 'script2.txt',
+          },
+          path: 'lunar/dD/IlIlIllIIllllIllllllIIlIl',
           methodName: 'run()V',
           searchFor: 'LDC "blogPosts"',
           replaceWith: 'LDC "removedBySolarTweaks"',
@@ -114,7 +123,10 @@ export const defaultSettings = {
       modspacket: [
         {
           patchType: 'replace',
-          scripts: { searchFor: 'script1.txt', replaceWith: 'script2.txt' },
+          scripts: {
+            searchFor: 'script1.txt',
+            replaceWith: 'script2.txt',
+          },
           path: 'com/lunarclient/bukkitapi/nethandler/LCPacket',
           methodName: '<clinit>()V',
           searchFor:
@@ -125,8 +137,11 @@ export const defaultSettings = {
       mantle: [
         {
           patchType: 'replace',
-          scripts: { searchFor: 'script1.txt', replaceWith: 'script2.txt' },
-          path: 'lunar/a/lIlIIIlllIlllllllIlllllII',
+          scripts: {
+            searchFor: 'script1.txt',
+            replaceWith: 'script2.txt',
+          },
+          path: 'lunar/a/IlIlIllIIllllIllllllIIlIl',
           methodName: '<clinit>()V',
           searchFor: 'LDC "http://s.optifine.net"',
           replaceWith: 'LDC "http://capes.mantle.gg"',
@@ -135,10 +150,13 @@ export const defaultSettings = {
       levelHead: [
         {
           patchType: 'replace',
-          scripts: { searchFor: 'script1.txt', replaceWith: 'script2.txt' },
-          path: 'lunar/bt/IllIlllllIIllIllIIIlllllI',
+          scripts: {
+            searchFor: 'script1.txt',
+            replaceWith: 'script2.txt',
+          },
+          path: 'lunar/bt/IIIIlllIIIlllllIIlllIIIIl',
           methodName:
-            'IllIlllllIIllIllIIIlllllI(Llunar/aK/lIIllIIlIllIIlIIllllllIIl;)V',
+            'IIIIlllIIIlllllIIlllIIIIl(Llunar/aK/lIIlIIllIlIlllIllIlIlIIIl;)V',
           searchFor: 'LDC "Level: "',
           replaceWith: 'LDC "$custom_text"',
         },
@@ -146,10 +164,13 @@ export const defaultSettings = {
       autogg: [
         {
           patchType: 'replace',
-          scripts: { searchFor: 'script1.txt', replaceWith: 'script2.txt' },
-          path: 'lunar/bt/IllIlllllIIllIllIIIlllllI',
+          scripts: {
+            searchFor: 'script1.txt',
+            replaceWith: 'script2.txt',
+          },
+          path: 'lunar/bt/IIIIlllIIIlllllIIlllIIIIl',
           methodName:
-            'IllIlllllIIllIllIIIlllllI(Llunar/aG/lIlIIIlllIlllllllIlllllII;)V',
+            'IIIIlllIIIlllllIIlllIIIIl(Llunar/aG/IlIlIllIIllllIllllllIIlIl;)V',
           searchFor: 'LDC "/achat gg"',
           replaceWith: 'LDC "/achat $custom_text"',
         },
@@ -157,9 +178,12 @@ export const defaultSettings = {
       nick: [
         {
           patchType: 'replace',
-          scripts: { searchFor: 'script1.txt', replaceWith: 'script2.txt' },
-          path: 'lunar/bD/llllIIlllIlllIllIlIllIlll',
-          methodName: 'IIlIIllIlIllIlIIIIIlllllI(Z)Ljava/lang/String;',
+          scripts: {
+            searchFor: 'script1.txt',
+            replaceWith: 'script2.txt',
+          },
+          path: 'lunar/bD/IlIllIlllllIIIIIllIIlIlIl',
+          methodName: 'lIllIIlIlIIlIllIIlllIllII(Z)Ljava/lang/String;',
           searchFor: 'LDC "You"',
           replaceWith: 'LDC "$custom_text"',
         },
@@ -167,9 +191,12 @@ export const defaultSettings = {
       fps: [
         {
           patchType: 'replace',
-          scripts: { searchFor: 'script1.txt', replaceWith: 'script2.txt' },
-          path: 'lunar/bn/IllIlllllIIllIllIIIlllllI',
-          methodName: 'IIIllIIIlIIllIllIIIllllll()Ljava/lang/String;',
+          scripts: {
+            searchFor: 'script1.txt',
+            replaceWith: 'script2.txt',
+          },
+          path: 'lunar/bn/IIIIlllIIIlllllIIlllIIIIl',
+          methodName: 'lIlIIIlllIIIIIlIIIlIIIlll()Ljava/lang/String;',
           searchFor: 'args["\\u0001 FPS"]',
           replaceWith: 'args["\\u0001 $custom_text"]',
         },
@@ -177,11 +204,14 @@ export const defaultSettings = {
       websocket: [
         {
           patchType: 'replace',
-          scripts: { searchFor: 'script1.txt', replaceWith: 'script2.txt' },
-          path: 'lunar/au/IllIlllllIIllIllIIIlllllI',
+          scripts: {
+            searchFor: 'script1.txt',
+            replaceWith: 'script2.txt',
+          },
+          path: 'lunar/au/IIIIlllIIIlllllIIlllIIIIl',
           methodName: '<init>(Ljava/util/Map;)V',
           searchFor:
-            'GETSTATIC lunar/as/lIlIIIlllIlllllllIlllllII.llIIlllIlIIllIIIIIIIlIIlI Ljava/lang/String;\nINVOKEDYNAMIC makeConcatWithConstants (Ljava/lang/String;)Ljava/lang/String; handle[H_INVOKESTATIC java/lang/invoke/StringConcatFactory.makeConcatWithConstants(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;] args["wss://assetserver.\\u0001/connect"]\nINVOKESPECIAL java/net/URI.<init>(Ljava/lang/String;)V\nNEW org/java_websocket/drafts/Draft_6455\nDUP\nINVOKESPECIAL org/java_websocket/drafts/Draft_6455.<init>()V\nALOAD 1\nSIPUSH 30000\nINVOKESPECIAL org/java_websocket/client/WebSocketClient.<init>(Ljava/net/URI;Lorg/java_websocket/drafts/Draft;Ljava/util/Map;I)V',
+            'GETSTATIC lunar/as/IlIlIllIIllllIllllllIIlIl.IIIllIlIIlIlIllllIlIIllll Ljava/lang/String;\nINVOKEDYNAMIC makeConcatWithConstants (Ljava/lang/String;)Ljava/lang/String; handle[H_INVOKESTATIC java/lang/invoke/StringConcatFactory.makeConcatWithConstants(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;] args["wss://assetserver.\\u0001/connect"]\nINVOKESPECIAL java/net/URI.<init>(Ljava/lang/String;)V\nNEW org/java_websocket/drafts/Draft_6455\nDUP\nINVOKESPECIAL org/java_websocket/drafts/Draft_6455.<init>()V\nALOAD 1\nSIPUSH 30000\nINVOKESPECIAL org/java_websocket/client/WebSocketClient.<init>(Ljava/net/URI;Lorg/java_websocket/drafts/Draft;Ljava/util/Map;I)V',
           replaceWith:
             'LDC "$custom_text"\nINVOKESPECIAL java/net/URI.<init>(Ljava/lang/String;)V\nNEW org/java_websocket/drafts/Draft_6455\nDUP\nINVOKESPECIAL org/java_websocket/drafts/Draft_6455.<init>()V\nCHECKCAST org/java_websocket/drafts/Draft\nALOAD 1\nSIPUSH 30000\nINVOKESPECIAL org/java_websocket/client/WebSocketClient.<init>(Ljava/net/URI;Lorg/java_websocket/drafts/Draft;Ljava/util/Map;I)V',
         },
