@@ -13,11 +13,9 @@
         >
         <div class="ml-5">
           <h4>Java File Path:</h4>
-          <v-col cols="12" sm="11" class="mt-n5">
-            <v-text-field
-              v-model="settings.jrePath"
-              @click="setNewJrePath()"
-            ></v-text-field>
+          <v-col cols="12" sm="12" class="d-flex mt-n5">
+            <v-text-field v-model="settings.jrePath"></v-text-field>
+            <v-btn class="ml-3 align-self-center" @click="setNewJrePath()">Browse</v-btn>
           </v-col>
         </div>
         <div class="ml-5 mt-n5">

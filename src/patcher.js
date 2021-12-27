@@ -41,6 +41,7 @@ export async function checkSTFolder() {
             console.log(`Old ST folder deleted`);
           }
           console.log(`Creating ST folder...`);
+          fse.mkdir(STFolderLocation);
           fse.copySync(`${__dirname}\\..\\template`, STFolderLocation);
           console.log(`ST folder created...`);
           resolve();
