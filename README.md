@@ -1,31 +1,27 @@
-# Solar Tweaks
+# Rising Sun
+_Solar Tweaks_ - Redone.
 
-Solar Tweaks' official software, all open sourced of course.
+A fork of [Solar Tweaks](https://github.com/Solar-Tweaks/Solar-Tweaks) with added features.
 
-# What is Solar Tweaks?
+## What is Rising Sun?
+_Rising Sun_ is a _Solar Tweaks_ fork designed to provide more features, as well as modular plug-in support.
 
-Solar Tweaks is a software that allows you to tweak Lunar Client to your liking and re-enable some features that are completely disabled such as Freelook or AutoTextHotkey. 
+## Building From Source?
 
-However, those mods are disabled by the server for a reason. If you use Solar Tweaks to re-enable these mods on servers that ban them, **you are cheating (on Hypixel it is cheating).** Therefore, **use those features of Solar Tweaks at your own risk.**
+### Prerequisites
+ * [git](https://git-scm.com/downloads)
+ - [Node.js](https://nodejs.org/en/download/) (with npm)
 
-# How can I build it from source?
-
-If you want to build it from source, make sure you have installed:
- - [Git](https://git-scm.com/downloads)
- - [NodeJS (with npm)](https://nodejs.org/en/download/)
-
-If you want to build it manually you will need to download the source code from GitHub. You can do so by using the following command:
 ```bash
-$ git clone https://github.com/Solar-Tweaks/Solar-Tweaks.git
-```
+# Clone the Rising Sun repository
+$ git clone https://github.com/uranometrical/rising-sun.git
 
-Once downloaded, you will need to install the dependencies. Move to the project folder and run following commands:
-```bash
-$ cd Solar-Tweaks
-$ npm install
-```
+# Enter into the generated directory
+$ cd rising-sun/
 
-Now you can build the software. Run the following command:
-```bash
+# Install npm depnendeices required by the project
+$ npm i
+
+# Build the software
 $ npm run electron:build
 ```
