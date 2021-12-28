@@ -1,9 +1,10 @@
 {
   "name": "rising-sun",
   "version": "1.0.0",
+  "description": "Solar Tweaks fork with added functionality.",
   "private": false,
   "author": {
-    "name": "Cy0ze",
+    "name": "Tomat",
     "url": "https://tomat.dev/projects/uranometrical-rising-sun/home"
   },
   "scripts": {

@@ -13,8 +13,11 @@ module.exports = {
           publisherName: "Uranometrical Team"
         },
         nsis: {
-          oneClick: false,
-          allowToChangeInstallationDirectory: true
+          oneClick: true,
+          allowToChangeInstallationDirectory: false
+        },
+        mac: {
+          category: "public.app-category.games"
         },
         extraResources: [
           {

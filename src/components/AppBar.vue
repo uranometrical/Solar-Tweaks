@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-app-bar dark color="primary" class="flex-grow-0">
+    <v-app-bar dark color="#FF4F58" class="flex-grow-0">
       <v-app-bar-title id="title">Rising Sun</v-app-bar-title>
       <v-spacer></v-spacer>
       <v-tooltip bottom>

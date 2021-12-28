@@ -22,9 +22,9 @@
         <v-card-text class="mt-5">
           <span
             >We are sorry for the inconvenience, if you don't know why this is
-            happening, please open a ticket in our
+            happening, please ask for support in our
           </span>
-          <a @click="openLink('https://discord.gg/XDzgdRSWfn')"
+          <a @click="openLink('https://discord.gg/GCwERqUBhz')"
             >Discord Server</a
           >
           <v-icon color="blue" size="20" class="ml-1">mdi-open-in-new</v-icon>

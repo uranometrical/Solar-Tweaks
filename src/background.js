@@ -27,8 +27,8 @@ async function createWindow() {
   const win = new BrowserWindow({
     width: 1000,
     height: 700,
-    resizable: false,
-    icon: '../public/icon.png',
+    resizable: true,
+    icon: __dirname + 'favicon.ico',
     webPreferences: {
       enableRemoteModule: true,
       nodeIntegration: true,
