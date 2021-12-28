@@ -6,7 +6,7 @@ import electron from 'electron';
 import * as AdmZip from 'adm-zip';
 import { getSetting } from './settings';
 
-export const STFolderLocation = `${process.env.LOCALAPPDATA}\\SolarTweaks`;
+export const STFolderLocation = `${process.env.LOCALAPPDATA}\\rising-sun`;
 export const STTempFolderLocation = `${STFolderLocation}\\Temp`;
 const STFolder = [
   'Scripts\\',
@@ -21,7 +21,7 @@ const STFolder = [
 ];
 
 export async function checkSTFolder() {
-  console.log(`Checking ST folder... (${STFolderLocation})`);
+  console.log(`Checking rising-sun folder... (${STFolderLocation})`);
   return new Promise((resolve) => {
     setTimeout(() => {
       try {
@@ -36,17 +36,17 @@ export async function checkSTFolder() {
         });
         if (!valid) {
           if (fs.existsSync(STFolderLocation)) {
-            console.log(`Deleting old ST folder...`);
+            console.log(`Deleting old rising-sun folder...`);
             fs.rmSync(STFolderLocation, { recursive: true, force: true });
-            console.log(`Old ST folder deleted`);
+            console.log(`Old rising-sun folder deleted`);
           }
-          console.log(`Creating ST folder...`);
+          console.log(`Creating rising-sun folder...`);
           fse.mkdir(STFolderLocation);
           fse.copySync(`${__dirname}\\..\\template`, STFolderLocation);
-          console.log(`ST folder created...`);
+          console.log(`rising-sun folder created...`);
           resolve();
         } else {
-          console.log(`ST folder is valid`);
+          console.log(`rising-sun folder is valid`);
           resolve();
         }
       } catch (error) {

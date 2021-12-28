@@ -72,7 +72,7 @@
       </div>
     </v-card>
     <v-card id="patcher-card" elevation="5" v-if="!isLoading">
-      <v-card-title>Solar Tweaks Patcher</v-card-title>
+      <v-card-title>Rising Sun Patcher</v-card-title>
       <v-tabs v-model="currentTab">
         <v-tab>
           <v-icon left>mdi-cog-outline</v-icon>
@@ -199,7 +199,7 @@ export default {
     currentTab: 'tab-Tweaks',
     steps: [
       {
-        name: 'Checking ST folder',
+        name: 'Checking rising-sun folder',
         done: false,
         inProgress: false,
         error: false,
@@ -249,7 +249,7 @@ export default {
       {
         name: 'Mantle integration',
         internalName: 'mantle',
-        tooltip: 'Directly add mantle through Solar Tweaks',
+        tooltip: 'Directly add mantle through Rising Sun',
       },
       {
         name: 'Block server from disabling mods',

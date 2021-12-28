@@ -8,7 +8,7 @@
       <v-card>
         <v-card-title class="primary">Settings</v-card-title>
         <v-card-subtitle class="mb-2 primary"
-          >Edit Solar Tweaks settings here. When it's done press
+          >Edit Rising Sun settings here. When it's done press
           <strong>Save</strong>.</v-card-subtitle
         >
         <div class="ml-5">

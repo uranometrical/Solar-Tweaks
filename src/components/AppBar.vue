@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-app-bar dark color="primary" class="flex-grow-0">
-      <v-app-bar-title id="title">Solar Tweaks</v-app-bar-title>
+      <v-app-bar-title id="title">Rising Sun</v-app-bar-title>
       <v-spacer></v-spacer>
       <v-tooltip bottom>
         <template v-slot:activator="{ on, attrs }">
@@ -9,7 +9,7 @@
             fab
             small
             class="mr-2"
-            @click="openSetings()"
+            @click="openSettings()"
             v-bind="attrs"
             v-on="on"
           >
@@ -119,7 +119,7 @@
             <v-btn
               color="primary"
               text
-              @click="openLink('https://github.com/Solar-Tweaks/Solar-Tweaks')"
+              @click="openLink('https://github.com/uraometrical/rising-sun')"
             >
               <v-icon left>mdi-github</v-icon>
               <span>GitHub</span>

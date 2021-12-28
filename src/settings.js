@@ -1,7 +1,7 @@
 import fs from 'fs';
 import process from 'process';
 
-const settingsFile = `${process.env.LOCALAPPDATA}\\SolarTweaks\\settings.json`;
+const settingsFile = `${process.env.LOCALAPPDATA}\\rising-sun\\settings.json`;
 
 export function getSetting(key) {
   return JSON.parse(readSettings())[key];
