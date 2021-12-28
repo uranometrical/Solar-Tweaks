@@ -6,11 +6,11 @@ module.exports = {
     electronBuilder: {
       nodeIntegration: true,
       builderOptions: {
-        appId: "solartweaks.patcher",
-        productName: "Solar Tweaks",
+        appId: "rising-sun.patcher",
+        productName: "Rising Sun",
         win: {
           target: "nsis",
-          publisherName: "Solar Tweaks"
+          publisherName: "Uranometrical Team"
         },
         nsis: {
           oneClick: false,

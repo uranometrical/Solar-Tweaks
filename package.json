@@ -1,10 +1,10 @@
 {
-  "name": "solartweaks",
-  "version": "3.0.3",
+  "name": "rising-sun",
+  "version": "1.0.0",
   "private": false,
   "author": {
     "name": "Cy0ze",
-    "url": "https://discord.gg/solartweaks"
+    "url": "https://tomat.dev/projects/uranometrical-rising-sun/home"
   },
   "scripts": {
     "serve": "vue-cli-service serve",

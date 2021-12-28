@@ -360,8 +360,8 @@ export default {
       if (commitId === null) {
         this.errorOccuredOnStep(
           4,
-          'Wrong Lunar version. Try to update LunarClient/SolarTweaks.',
-          'https://github.com/Solar-Tweaks/SolarTweaks-Mappings'
+          'Wrong Lunar version. Try to update Lunar Client/Rising Sun.',
+          'https://github.com/Solar-Tweaks/SolarTweaks-Mappings' // TODO: Replace with our own mappings
         );
         return;
       }

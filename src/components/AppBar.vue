@@ -3,31 +3,77 @@
     <v-app-bar dark color="primary" class="flex-grow-0">
       <v-app-bar-title id="title">Solar Tweaks</v-app-bar-title>
       <v-spacer></v-spacer>
-      <v-btn fab small class="mr-2" @click="openSettings()">
-        <v-icon dark>mdi-cog</v-icon>
-      </v-btn>
-      <v-btn class="mr-2" @click="openLink('https://discord.gg/SolarTweaks')">
-        <v-icon left>mdi-discord</v-icon>
-        Discord
-      </v-btn>
-      <v-btn @click="showCredits = true">
-        <v-icon left>mdi-copyright</v-icon>
-        Credits
-      </v-btn>
+      <v-tooltip bottom>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn
+            fab
+            small
+            class="mr-2"
+            @click="openSetings()"
+            v-bind="attrs"
+            v-on="on"
+          >
+            <v-icon>mdi-cog</v-icon>
+          </v-btn>
+        </template>
+        <span>Open Settings</span>
+      </v-tooltip>
+      <v-tooltip bottom>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn
+            fab
+            small
+            class="mr-2 red--text"
+            @click="openLink('https://discord.gg/GCwERqUBhz')"
+            v-bind="attrs"
+            v-on="on"
+          >
+            <v-icon>mdi-discord</v-icon>
+          </v-btn>
+        </template>
+        <span>Rising Sun Discord</span>
+      </v-tooltip>
+      <v-tooltip bottom>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn
+            fab
+            small
+            class="mr-2"
+            @click="openLink('https://discord.gg/SolarTweaks')"
+            v-bind="attrs"
+            v-on="on"
+          >
+            <v-icon>mdi-discord</v-icon>
+          </v-btn>
+        </template>
+        <span>Solar Tweaks Discord</span>
+      </v-tooltip>
+      <v-tooltip bottom>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn fab small @click="showCredits = true" v-bind="attrs" v-on="on">
+            <v-icon>mdi-copyright</v-icon>
+          </v-btn>
+        </template>
+        <span>Show Credits</span>
+      </v-tooltip>
       <v-dialog v-model="showCredits" width="500">
         <v-card>
           <v-card-title class="text-h5 primary">
             About
           </v-card-title>
           <v-card-text class="mt-5">
-            Solar Tweaks
+            Rising Sun
             <br />
-            Official software of SolarTweaks (ST) Team
+            A Uranometrical fork of SolarTweaks.
             <br /><br />
-            Designed and coded by
-            <strong>Cy0ze</strong><br /><br />
+            Forked and added to by
+            <strong>Tomat</strong><br /><br />
             A big thanks to
             <ul>
+              <li>
+                <strong>Cy0ze</strong> for developing and designing the original
+                SolarTweaks program
+              </li>
               <li>
                 <strong>Prorok</strong> for saving me a lot of time for the
                 Hypixel Mods patch
@@ -63,7 +109,9 @@
             </ul>
             <br />
             <span class="version"
-              >SolarTweaks <strong>v{{ softwareVersion }}</strong></span
+              >Rising Sun <strong>v{{ softwareVersion }}</strong
+              ><br />SolarTweaks
+              <strong>v{{ solarTweaksVersion }}</strong></span
             >
           </v-card-text>
           <v-divider></v-divider>
@@ -87,12 +135,12 @@
 </template>
 
 <script>
-import Settings from './Settings.vue';
+import Settings from "./Settings.vue";
 
-import electron from 'electron';
+import electron from "electron";
 
 export default {
-  name: 'AppBar',
+  name: "AppBar",
 
   components: {
     Settings,
@@ -101,14 +149,15 @@ export default {
   data: () => ({
     showCredits: false,
     softwareVersion: electron.remote.app.getVersion(),
+    solarTweaksVersion: "3.0.3",
   }),
 
   methods: {
     openLink(link) {
-      require('electron').shell.openExternal(link);
+      require("electron").shell.openExternal(link);
     },
     openSettings() {
-      this.$store.commit('markSettingsOpenedAs', true);
+      this.$store.commit("markSettingsOpenedAs", true);
     },
   },
 
