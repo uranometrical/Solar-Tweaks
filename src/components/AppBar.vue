@@ -1,7 +1,10 @@
 <template>
   <div>
-    <v-app-bar dark color="#FF4F58" class="flex-grow-0">
-      <v-app-bar-title id="title">Rising Sun</v-app-bar-title>
+    <v-app-bar dark class="flex-grow-0">
+      <div class="d-flex">
+        <v-img src="icon.png" contain height="64px" width="64px" class="funny-logo" />
+        <v-app-bar-title class="align-self-center">&nbsp;&nbsp;&nbsp;Rising Sun</v-app-bar-title>
+      </div>
       <v-spacer></v-spacer>
       <v-tooltip bottom>
         <template v-slot:activator="{ on, attrs }">
@@ -75,8 +78,8 @@
                 SolarTweaks program
               </li>
               <li>
-                <strong>Prorok</strong> for saving <strong>Cy0ze</strong> a lot of time for the
-                Hypixel Mods patch
+                <strong>Prorok</strong> for saving <strong>Cy0ze</strong> a lot
+                of time for the Hypixel Mods patch
               </li>
               <li>
                 <strong>Aetopia</strong> for coding and maintaining
@@ -119,7 +122,7 @@
             <v-btn
               color="primary"
               text
-              @click="openLink('https://github.com/uraometrical/rising-sun')"
+              @click="openLink('https://github.com/uranometrical/rising-sun')"
             >
               <v-icon left>mdi-github</v-icon>
               <span>GitHub</span>
@@ -150,6 +153,7 @@ export default {
     showCredits: false,
     softwareVersion: electron.remote.app.getVersion(),
     solarTweaksVersion: "3.0.3",
+    iconDir: __dirname + "/src/icon.png",
   }),
 
   methods: {
@@ -176,5 +180,8 @@ export default {
 
 #settings-btn {
   border-radius: 100%;
+}
+
+.funny-logo {
 }
 </style>

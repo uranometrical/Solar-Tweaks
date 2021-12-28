@@ -17,17 +17,19 @@
         <h2 class="mt-6 header">Version</h2>
         <strong>Rising Sun</strong> offers support for multiple versions, pick a
         selected version from the dropdown below.
-        <v-col class="d-flex">
+        <v-col>
           <v-select
             :items="resolvedVersions"
             label="Minecraft Version"
             outlined
           ></v-select>
+          <v-btn
+            color="#FF4F58"
+            class="horizontally-centered"
+            @click="chooseFile"
+            >Choose file</v-btn
+          >
         </v-col>
-        <br />
-        <v-btn color="#FF4F58" class="horizontally-centered" @click="chooseFile"
-          >Choose file</v-btn
-        >
       </v-card-text>
     </v-card>
     <v-snackbar v-model="snackbar">
