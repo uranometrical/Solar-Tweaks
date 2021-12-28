@@ -75,7 +75,7 @@
                 SolarTweaks program
               </li>
               <li>
-                <strong>Prorok</strong> for saving me a lot of time for the
+                <strong>Prorok</strong> for saving <strong>Cy0ze</strong> a lot of time for the
                 Hypixel Mods patch
               </li>
               <li>
@@ -98,7 +98,7 @@
               </li>
               <li>
                 <strong>Specially</strong> for being a super cool person,
-                promoting and trusting me.
+                promoting and trusting <strong>Cy0ze</strong>.
                 <a @click="openLink('https://www.youtube.com/c/SpeciallyMC')"
                   >His YouTube channel</a
                 >
